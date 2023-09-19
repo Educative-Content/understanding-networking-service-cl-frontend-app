@@ -36,6 +36,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://YOUR_IP_ADDRESS:PORT"
+  "proxy": "http://YOUR_IP_ADDRESS:3000"
 
 }
