@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css'; // Import a CSS file for styling
 
 const App = () => {
   const [responseData, setResponseData] = useState(null);
@@ -21,10 +22,10 @@ const App = () => {
       <table>
         <thead>
           <tr>
-            <th>User ID</th>
             <th>ID</th>
-            <th>Title</th>
-            <th>Body</th>
+            <th>Book</th>
+            <th>Author</th>
+    
           </tr>
         </thead>
         <tbody>
