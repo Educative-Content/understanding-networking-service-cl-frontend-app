@@ -1,33 +1,44 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
-function App() {
-  const [data, setData] = useState([]);
-  const[info, setInfo]=useState(['loading...'])
+const App = () => {
+  const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
-    const information= axios.get('http://localhost:3000/api/books')
-      .then(response => {
-        setData(response.data);
-        setInfo(information.data)
-        console.log(information.data);
+    fetch('/api/books')
+      .then(resp => resp.json()) // Parse the response as JSON
+      .then(data => {
+        setResponseData(data);
       })
-      .catch(error => {
-        console.error('Error fetching data:', error);
+      .catch(err => {
+        console.log('======failure=======');
+        console.error(err);
       });
   }, []);
 
   return (
     <div>
-      <h1>Data from API</h1>
-      <ul>
-        {data.map(item => (
-          <li key={item.id}>{item.title}{item.author}</li>
-        ))}
-      </ul>
+      <h1>Data Table</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Body</th>
+          </tr>
+        </thead>
+        <tbody>
+          {responseData && responseData.map(item => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.title}</td>
+              <td>{item.author}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-}
+};
 
 export default App;
