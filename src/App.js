@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Data Cards</h1>
+      <h1>Cloud labs</h1>
       <div className="card-container">
         {responseData && responseData.map(item => (
           <div key={item.id} className="card">
