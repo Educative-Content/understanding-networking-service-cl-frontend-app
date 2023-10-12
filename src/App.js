@@ -22,8 +22,8 @@ const App = () => {
       <div className="card-container">
         {responseData && responseData.map(item => (
           <div key={item.id} className="card">
-            <h2>{item.title}</h2>
             <img src={item.imageLink} alt={item.title} className="card-image" />
+              <h2>{item.title}</h2>
           </div>
         ))}
       </div>
