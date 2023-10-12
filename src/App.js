@@ -18,26 +18,15 @@ const App = () => {
 
   return (
     <div>
-      <h1>Data Table</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Book</th>
-            <th>Author</th>
-    
-          </tr>
-        </thead>
-        <tbody>
-          {responseData && responseData.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td>{item.author}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h1>Data Cards</h1>
+      <div className="card-container">
+        {responseData && responseData.map(item => (
+          <div key={item.id} className="card">
+            <h2>{item.title}</h2>
+            <img src={item.imageLink} alt={item.title} className="card-image" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
